@@ -1,6 +1,8 @@
+# this spec file from github.com/relativesure/autocopr
+
 %global debug_package %{nil}
 
-Name: starship
+Name:    starship
 Version: 1.23.0
 Release: 1%{?dist}
 Summary: The minimal, blazing-fast, and infinitely customizable prompt for any shell
@@ -10,7 +12,6 @@ URL: https://github.com/starship/starship
 Source: %{url}/releases/download/v%{version}/%{name}-x86_64-unknown-linux-gnu.tar.gz
 # No man page yet (https://github.com/starship/starship/issues/2926), so including the config README
 Source1: https://raw.githubusercontent.com/starship/starship/v%{version}/docs/config/README.md
-Source2: https://raw.githubusercontent.com/starship/starship/v%{version}/LICENSE
 
 %description
 The minimal, blazing-fast, and infinitely customizable prompt for any shell!
@@ -26,7 +27,6 @@ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 %autosetup -c
 # Copy config README here
 cp %{SOURCE1} CONFIGURATION.md
-cp %{SOURCE2} .
 
 %build
 ./%{name} completions bash > %{name}.bash
@@ -45,4 +45,3 @@ install -pvD -m 0644 _%{name} %{buildroot}%{zsh_completions_dir}/_%{name}
 %{_bindir}/%{name}
 %{bash_completions_dir}/%{name}
 %{zsh_completions_dir}/_%{name}
-%license LICENSE
