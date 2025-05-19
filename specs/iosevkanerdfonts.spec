@@ -1,8 +1,8 @@
 %global debug_package %{nil}
 
 Name:           iosevka-nerd-fonts
-Version:       3.3.0 
-Release:        1%{?dist}
+Version: 3.4.0
+Release: 1%{?dist}
 Summary:   nerd fonts      
 
 License:  MIT
